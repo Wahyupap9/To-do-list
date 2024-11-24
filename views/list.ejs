@@ -3,35 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/list.css">
   </head>
   <body>
     <h1>To Do List</h1>
-    <input type="text" placeholder="Write new task" />
-    <button>Submit</button>
-
     <div class="container">
-      <table>
-        <tr>
-          <th>No</th>
-          <th>Status</th>
-          <th>Task</th>
-          <th>Action</th>
-        </tr>
-        <%let no = 1; if (lists.length > 0) { lists.forEach(list => { %>
-        <tr>
-          <td><%- no %></td>
-          <td>
-            <input type="checkbox" <% if (list.status) {%>checked <%;}%>>
-          </td>
-          <td><%- list.task %></td>
-          <td>
-            <button>Delete</button>
-            <button>Change</button>
-          </td>
-        </tr>
-        <% })} %>
-      </table>
+        <input type="text" placeholder="Write new task" />
+        <button class="submit">Submit</button>
+
+        <div class="container-list">
+        <table border="1" cellspacing="0">
+            <tr>
+            <th>No</th>
+            <th>Status</th>
+            <th>Task</th>
+            <th>Action</th>
+            </tr>
+
+            <%let no = 1; if (lists.length > 0) { lists.forEach(list => { %>
+            <tr>
+            <td><%- no %></td>
+            <td>
+                <input type="checkbox" <% if (list.status) {%> checked <%;}%>>
+            </td>
+            <td class="task"><%- list.task %></td>
+            <td>
+                <button class="delete">Delete</button>
+                <button class="change">Change</button>
+            </td>
+            </tr>
+            <% no++ })} %>
+        </table>
+        </div>
     </div>
   </body>
 </html>
