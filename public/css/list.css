@@ -45,6 +45,22 @@ table {
   margin-top: 2rem;
 }
 
+th.no {
+  width: 5%;
+}
+
+th.status {
+  width: 13%;
+}
+
+th.task {
+  width: 57%;
+}
+
+th.action {
+  width: 25%;
+}
+
 th {
   font-size: 1.2rem;
 }

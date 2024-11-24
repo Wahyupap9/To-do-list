@@ -15,10 +15,10 @@
         <div class="container-list">
         <table border="1" cellspacing="0">
             <tr>
-            <th>No</th>
-            <th>Status</th>
-            <th>Task</th>
-            <th>Action</th>
+            <th class="no">No</th>
+            <th class="status">Status</th>
+            <th class="task">Task</th>
+            <th class="action">Action</th>
             </tr>
 
             <%let no = 1; if (lists.length > 0) { lists.forEach(list => { %>
@@ -27,10 +27,10 @@
             <td>
                 <input type="checkbox" <% if (list.status) {%> checked <%;}%>>
             </td>
-            <td class="task"><%- list.task %></td>
+            <td><%- list.task %></td>
             <td>
-                <button class="delete">Delete</button>
-                <button class="change">Change</button>
+                <a href="/delete/<%-list.id%>"><button class="delete">Delete</button></a>
+                <a href="/change/<%-list.id%>"><button class="change">Change</button></a>
             </td>
             </tr>
             <% no++ })} %>
