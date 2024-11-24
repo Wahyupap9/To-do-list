@@ -1,6 +1,10 @@
 const fs = require("fs");
 const express = require("express");
-const { loadLists, deleteList } = require("./functions/function.js");
+const {
+  loadLists,
+  deleteList,
+  addNewList,
+} = require("./functions/function.js");
 
 var app = express();
 app.set("view engine", "ejs");
@@ -22,6 +26,11 @@ app.get("/", function (req, res) {
 
 app.get("/delete/:id", function (req, res) {
   deleteList(req.params.id);
+  res.redirect("/");
+});
+
+app.post("/add", function (req, res) {
+  addNewList(req.body.task);
   res.redirect("/");
 });
 

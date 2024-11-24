@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { v4: uuidv4 } = require("uuid");
 
 const loadLists = () => {
   const lists = JSON.parse(fs.readFileSync("data/list.json", "utf-8"));
@@ -15,4 +16,11 @@ const deleteList = (id) => {
   saveLists(newList);
 };
 
-module.exports = { loadLists, deleteList };
+const addNewList = (task) => {
+  const lists = loadLists();
+  const list = { id: uuidv4(), task, status: false };
+  lists.push(list);
+  saveLists(lists);
+};
+
+module.exports = { loadLists, deleteList, addNewList };

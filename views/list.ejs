@@ -9,9 +9,10 @@
   <body>
     <h1>To Do List</h1>
     <div class="container">
-        <input type="text" placeholder="Write new task" />
-        <button class="submit">Submit</button>
-
+        <form action="/add" method="post">
+            <input type="text" name="task" placeholder="Write new task" />
+            <button class="submit">Submit</button>
+        </form>
         <div class="container-list">
         <table border="1" cellspacing="0">
             <tr>
@@ -29,7 +30,7 @@
             </td>
             <td><%- list.task %></td>
             <td>
-                <a href="/delete/<%-list.id%>"><button class="delete">Delete</button></a>
+                <a href="/delete/<%-list.id%>" onclick="return confirm('u sure?')"><button class="delete">Delete</button></a>
                 <a href="/change/<%-list.id%>"><button class="change">Change</button></a>
             </td>
             </tr>
